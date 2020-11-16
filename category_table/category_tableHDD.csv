@@ -1,0 +1,11 @@
+, Danh mục  , Hãng sản xuất  , KHOẢNG GIÁ ,  Dung Lượng ,  Tốc Độ Vòng Quay ,  Bộ Nhớ Đệm (Cache) ,  Tốc Độ Truyền Dữ Liệu 
+0,CPU - Bộ vi xử lý,SEAGATE,Dưới 2 triệu,500 GB,5400 RPM,16 MB,6 GB/s
+1,Mainboard - Bo mạch chủ,TOSHIBA,2 triệu - 4 triệu,1 TB,5700 RPM,32 MB,
+2,RAM - Bộ nhớ trong,WESTERN DIGITAL,4 triệu - 8 triệu,2 TB,5900 RPM,64 MB,
+3,Ổ cứng HDD,,Trên 8 triệu,3 TB,7200 RPM,128 MB,
+4,Ổ cứng SSD,,,4 TB,,256 MB,
+5,ODD - Ổ đĩa quang,,,6 TB,,512 MB,
+6,VGA - Card Màn Hình,,,8 TB,,,
+7,Case - Vỏ máy tính,,,10 TB,,,
+8,PSU - Nguồn máy tính,,,12 TB,,,
+9,,,,> 12TB,,,

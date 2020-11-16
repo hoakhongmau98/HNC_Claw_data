@@ -1,0 +1,28 @@
+, Danh mục  , Hãng sản xuất  , KHOẢNG GIÁ ,  Socket ,  Form Factor ,  Chipset ,  Số khe cắm RAM 
+0,Mainboard Intel,ASROCK,Dưới 2 triệu,Intel LGA 1151,Mini ITX,Intel H110 (LGA 1151),2 Khe
+1,Mainboard AMD,ASUS,2 triệu - 3 triệu,Intel LGA 1151-v2,U-ATX,Intel H310 (LGA 1151-v2),4 Khe
+2,,GIGABYTE,3 triệu - 5 triệu,Intel LGA 1200,M-ATX,Intel H410 (LGA 1200),8 Khe
+3,,INTEL,5 triệu - 7 triệu,Intel Dual LGA 2011,ATX,Intel B360 (LGA 1151-v2),12 Khe
+4,,MSI,7 triệu - 9 triệu,Intel Dual LGA 2011-v3,E-ATX,Intel B365 (LGA 1151-v2),16 Khe
+5,,SUPERMICRO,9 triệu - 12 triệu,Intel LGA 2066,EEB,Intel B460 (LGA 1200),
+6,,,12 triệu - 15 triệu,Intel LGA 3647,SSI EEB,Intel Z370 (LGA 1151-v2),
+7,,,Trên 15 triệu,Intel Dual LGA 3647,CEB,Intel Z390 (LGA 1151-v2),
+8,,,,AMD AM4,,Intel Z490 (LGA 1200),
+9,,,,AMD TR4,,Intel C246 (LGA 1151-v2),
+10,,,,AMD TRX4,,Intel C232 (LGA 1151),
+11,,,,AMD sTRX4,,Intel C242 (LGA 1151),
+12,,,,,,Intel X99 (LGA 2011-v3),
+13,,,,,,Intel X299 (LGA 2066),
+14,,,,,,Intel C422 (LGA 2066),
+15,,,,,,Intel C602 (Dual LGA 2011),
+16,,,,,,Intel C612 (Dual LGA 2011-v3),
+17,,,,,,Intel C621 (Dual LGA 3647),
+18,,,,,,Intel C622 (LGA 3647),
+19,,,,,,AMD A320 (AM4),
+20,,,,,,AMD B350 (AM4),
+21,,,,,,AMD B450 (AM4),
+22,,,,,,AMD B550 (AM4),
+23,,,,,,AMD X370 (AM4),
+24,,,,,,AMD X570 (AM4),
+25,,,,,,AMD X399 (TR4),
+26,,,,,,AMD TRX40 (TRX4),
