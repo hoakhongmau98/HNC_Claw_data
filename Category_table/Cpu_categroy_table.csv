@@ -1,0 +1,17 @@
+, Danh mục  , Hãng sản xuất  , KHOẢNG GIÁ ,  Dòng CPU ,  Thế hệ CPU ,  Socket 
+0,CPU Intel,AMD,Dưới 2 triệu,Intel Celeron,Intel Comet Lake S,LGA 1200
+1,CPU AMD,INTEL,2 triệu - 4 triệu,Intel Pentium,Intel Cascade Lake X,LGA 2011
+2,,,4 triệu - 8 triệu,Intel Core i3,Intel Cascade Lake,LGA 2011-v3
+3,,,Trên 8 triệu,Intel Core i5,Intel Coffee Lake,LGA 1151
+4,,,,Intel Core i7,Intel Kaby Lake,LGA 1151-v2
+5,,,,Intel Core i9,Intel Skylake X,LGA 2066
+6,,,,Intel Xeon,Intel Skylake W,LGA 3647
+7,,,,AMD Athlon,Intel Skylake SP,AMD AM4
+8,,,,AMD Ryzen 3,Intel Broadwell E,AMD sTRX4
+9,,,,AMD Ryzen 5,Intel Haswell E,AMD SP3
+10,,,,AMD Ryzen 7,Intel Ivy Bridge EP,
+11,,,,AMD Ryzen 9,AMD Ryzen 5000 Series,
+12,,,,AMD Ryzen Threadripper,AMD Ryzen 3000 Series,
+13,,,,AMD Ryzen EPYC,AMD Ryzen Threadripper 3000 Series,
+14,,,,,AMD Ryzen 2000 Series,
+15,,,,,AMD Ryzen EPYC,
