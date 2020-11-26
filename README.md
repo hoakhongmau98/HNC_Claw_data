@@ -22,8 +22,8 @@ HNC_Claw:
         + filename.ipynb
     - Test/
     
-Categories: Cpu, Main, Case, Vga ...
-Product: Thông tin của các danh mục chính với data là các sản phẩm thuộc Category đó.
-Category_classify: Thông tin về các tính chất mà mỗi category có để phân loại product.
-element: Thông tin của mỗi sản phẩm về những class mà nó được soi chiếu vào.
-error: Với mỗi sản phẩm mà không có hình ảnh sẽ được coi là một sản phẩm lỗi.
+Categories: Cpu, Main, Case, Vga .../
+Product: Thông tin của các danh mục chính với data là các sản phẩm thuộc Category đó./
+Category_classify: Thông tin về các tính chất mà mỗi category có để phân loại product./
+element: Thông tin của mỗi sản phẩm về những class mà nó được soi chiếu vào./
+error: Với mỗi sản phẩm mà không có hình ảnh sẽ được coi là một sản phẩm lỗi./
