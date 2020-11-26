@@ -1,52 +1,26 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 from bs4 import BeautifulSoup
 import os
 import urllib.request
 import requests
 import pandas as pd
-import re
 
 # List link of arg
-# dct_link = {'Cpu': '/cpu-bo-vi-xu-ly', 'Main': '/mainboard-bo-mach-chu',
-#             'Ram': '/ram-bo-nho-trong', 'Hdd': '/o-cung-hdd-desktop',
-#             'Ssd': '/o-cung-ssd', 'Vga': '/vga-card-man-hinh',
-#             'Case': '/vo-case', 'Psu': '/nguon-may-tinh',
-#             'Fan': '/tan-nhiet-cooling', 'Keyboard': '/ban-phim-may-tinh',
-#             'Mouse': '/chuot-may-tinh', 'Monitor': '/man-hinh-may-tinh'
-#             }
-dct_link = {'Main' : '/mainboard-bo-mach-chu'}
+dct_link = {'Cpu': '/cpu-bo-vi-xu-ly', 'Main': '/mainboard-bo-mach-chu',
+            'Ram': '/ram-bo-nho-trong', 'Hdd': '/o-cung-hdd-desktop',
+            'Ssd': '/o-cung-ssd', 'Vga': '/vga-card-man-hinh',
+            'Case': '/vo-case', 'Psu': '/nguon-may-tinh',
+            'Fan': '/tan-nhiet-cooling', 'Keyboard': '/ban-phim-may-tinh',
+            'Mouse': '/chuot-may-tinh', 'Monitor': '/man-hinh-may-tinh'
+            }
+# dct_link = {'Main' : '/mainboard-bo-mach-chu'}
 
 link = "https://www.hanoicomputer.vn"
 
 try:
-    os.mkdir('Categories/Category_classify/')
+    os.mkdir('Categories/Element/')
 except:
     None
 
-# định danh các ký tự đặc biệt trong tiếng việt, và các ký tự rút gọn dưới 1 dict
-INTAB = "aạảãàáâậầấẩẫăắằặẳẵoóòọõỏôộổỗồốơờớợởỡeéèẻẹẽêếềệểễuúùụủũưựữửừứiíìịỉĩyýỳỷỵỹdđẠAẢÃÀÁÂẬẦẤẨẪĂẮẰẶẲẴOÓÒỌÕỎÔỘỔỖỒỐƠỜỚỢỞỠÉEÈẺẸẼÊẾỀỆỂỄÚUÙỤỦŨƯỰỮỬỪỨIÍÌỊỈĨYÝỲỶỴỸDĐ "
-INTAB = [ord(ch) for ch in INTAB]
-replaces_dict = {}
-OUTTAB = "a" * 18 + "o" * 18 + "e" * 12 + "u" * 12 + "i" * 6 + "y" * 6 + "d" *2+ \
-         "A" * 18 + "O" * 18 + "E" * 12 + "U" * 12 + "I" * 6 + "Y" * 6 + "D" *2 + ' '
-
-for i in range(len(INTAB)):
-    replaces_dict[INTAB[i]] = OUTTAB[i]
-# replaces_dict = dict(zip(INTAB, OUTTAB))
-
-
-# func thay thế ký tự đặc biệt bằng ký tự rút gọn
-def no_accent_vietnamese(utf8_str):
-    str_replace = ''
-    INTAB = "aạảãàáâậầấẩẫăắằặẳẵoóòọõỏôộổỗồốơờớợởỡeéèẻẹẽêếềệểễuúùụủũưựữửừứiíìịỉĩyýỳỷỵỹdđẠAẢÃÀÁÂẬẦẤẨẪĂẮẰẶẲẴOÓÒỌÕỎÔỘỔỖỒỐƠỜỚỢỞỠÉEÈẺẸẼÊẾỀỆỂỄÚUÙỤỦŨƯỰỮỬỪỨIÍÌỊỈĨYÝỲỶỴỸDĐ "
-    for chr in utf8_str:
-        # print(chr)
-        if chr in INTAB:
-            str_replace = str_replace + replaces_dict[ord(chr)]
-        else:
-            str_replace = str_replace + chr
-    return str_replace
 
 def get_category_link(URL):
     category_link_list = []
@@ -60,30 +34,27 @@ def get_category_link(URL):
     for link in element_list:
         element_content = []
         # name of content category
-        category_content = no_accent_vietnamese(link.span.contents[0].lower())
-        print(category_content)
-        # print(link.span.contents)
+        category_content = link.span.contents
         for a_tag in link.find_all('a'):
             element_link = a_tag.attrs['href']
             # element_content.append(str(element_link))
-
             # remake link from a_tag
-            print(element_link)
             if 'https://www.hanoicomputer.vn/' in element_link:
                 category_link_list.append(element_link)
-                element_content.append(element_link.split('=')[-1])
+                element_content.append(str(element_link))
             elif '//' in element_link:
                 category_link_list.append('https://www.hanoicomputer.vn/' + element_link.split('/')[-1])
-                element_content.append(element_link.split('=')[-1])
+                element_content.append(str(element_link))
             elif '/' not in element_link:
                 category_link_list.append('https://www.hanoicomputer.vn/' + element_link)
-                element_content.append(element_link.split('=')[-1])
+                element_content.append(str(element_link))
             else:
                 category_link_list.append('https://www.hanoicomputer.vn' + element_link)
-                element_content.append(element_link.split('/')[-1])
+                element_content.append(str(element_link))
         # make dataframe and save it to csv file
-        df_element = pd.DataFrame({category_content: element_content})
+        df_element = pd.DataFrame({category_content[0]: element_content})
         df = pd.concat([df, df_element], axis=1)
+        # print(df)
     return df, category_link_list
 
 
@@ -141,8 +112,8 @@ def claw_element_data(key, lst_element):
 
         df_current_obj = {name_element: lst_check_pdct}
         df_current_obj = pd.DataFrame(df_current_obj)
-        df_current_element = pd.concat([df_current_element, df_current_obj], axis=1)
-        # df_current_element.to_csv('Categories/Element/element_' + key + '.csv', index=False)
+        df_current_category = pd.concat([df_current_category, df_current_obj], axis=1)
+        df_current_category.to_csv('Categories/Element/element_' + key + '.csv', index=False)
 
         print('-' * 80)
         print(f'element name    : {name_element}')
@@ -152,10 +123,10 @@ def claw_element_data(key, lst_element):
         print(f'category_code   : {lst_code_category}')
         print(f'compare code_obj: {lst_check_pdct}')
         print(df_current_obj)
-        print(df_current_element)
+        print(df_current_category)
         print(f"{'*' * 80}\n")
 
-    return df_current_element
+    return df_current_category
 
 
 for key, value in dct_link.items():

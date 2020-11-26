@@ -67,20 +67,31 @@ category_table_dataframe_name = ['Cpu_category_table', 'Case_category_table', 'F
                                  'Mouse_category_table', 'Monitor_category_table', 'Psu_category_table',
                                  'Ram_category_table', 'Ssd_category_table', 'Vga_category_table']
 
-#   insert dataframe to Product table
-for dataframe in product_dataframe:
-    for row in range(len(dataframe)):
-        Object = Product(dataframe.iloc[row]['Code'], dataframe.iloc[row]['Name'], dataframe.iloc[row]['Bao hanh'],
-                         str(dataframe.iloc[row]['Base_price']), str(dataframe.iloc[row]['Slase_price']),
-                         dataframe.iloc[row]['Img_directory'], dataframe.iloc[row]['Thong so san pham'])
 
-        db.session.add(Object)
-        db.session.commit()
+def insertproduct():
+    # insert dataframe to Product table
+    for dataframe in product_dataframe:
+        for row in range(len(dataframe)):
+            Object = Product(dataframe.iloc[row]['Code'], dataframe.iloc[row]['Name'], dataframe.iloc[row]['Bao hanh'],
+                             str(dataframe.iloc[row]['Base_price']), str(dataframe.iloc[row]['Slase_price']),
+                             dataframe.iloc[row]['Img_directory'], dataframe.iloc[row]['Thong so san pham'])
 
-# insert dataframe to each table vs it name
-for item in range(len(category_dataframe)):
-    category_dataframe[item].to_sql(name=category_dataframe_name[item], con=db.engine, index=False)
+            db.session.add(Object)
+            db.session.commit()
 
-# insert dataframe to each table vs it name
-for item in range(len(category_table_dataframe)):
-    category_table_dataframe[item].to_sql(name=category_table_dataframe_name[item], con=db.engine, index=False)
+
+def insertcategory():
+    # insert dataframe to each table vs it name
+    for item in range(len(category_dataframe)):
+        print(category_dataframe[item].keys())
+        print(item)
+        print(category_dataframe_name[item])
+        # category_dataframe[item].to_sql(name=category_dataframe_name[item], con=db.engine, index=False)
+
+
+def insertcategory_table():
+    # insert dataframe to each table vs it name
+    for item in range(len(category_table_dataframe)):
+        print(category_table_dataframe[item])
+        print(category_table_dataframe_name[item])
+        # category_table_dataframe[item].to_sql(name=category_table_dataframe_name[item], con=db.engine, index=False)

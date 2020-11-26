@@ -1,6 +1,11 @@
 from os import rename, listdir
 
 
+# ****************************************
+# old file
+# ****************************************
+
+
 # Test on Test_folder
 # print(f"old folder: {listdir('Tets_folder/')}")
 # rename(r'Tets_folder/category_tableHDD.csv', r'Tets_folder/new_name.csv')
@@ -15,7 +20,7 @@ for file in lst_file:
     piece_name = name_file.split('_')
     if piece_name[1].lower() is name_element:
         new_name = piece_name[1][0].upper() + piece_name[1][1:].lower() + '_' + piece_name[0].lower()
-        old_name = 'Category/' +file
+        old_name = 'Category/' + file
         new_name = 'Category/' + new_name
         rename(old_name, new_name)
 print(f"new folder: {listdir('Category/')}")

@@ -15,10 +15,6 @@ dct_link = {'Cpu': '/cpu-bo-vi-xu-ly', 'Main': '/mainboard-bo-mach-chu',
 
 # dct_link = {'Cpu': '/cpu-bo-vi-xu-ly'}
 try:
-    os.mkdir('Categories/')
-except:
-    None
-try:
     os.mkdir('Categories/img/')
 except:
     None
@@ -49,7 +45,7 @@ def claw_infor_product(key, url):
     page_max = soup.find('div', class_='paging').find_all('a')[-2].contents[0]
     # edit url for per page
     try:
-        os.mkdir('Categories/img/' + key)
+        os.mkdir('img/' + key)
     except:
         None
     for page_number in range(int(page_max) + 1):
@@ -112,10 +108,10 @@ def claw_infor_product(key, url):
                 link_img = pdct.find('img', class_='lazy').attrs['data-src']
                 # if obj have an image => save obj, else save obj an error
                 file_name = link_img.split('/')[-1]
-                img_directory = 'Categories/img/' + key + '/' + file_name
+                img_directory = 'img/' + key + '/' + file_name
 
                 try:
-                    with open('Categories/img/' + key + '/' + file_name, mode='wb') as f:
+                    with open('img/' + key + '/' + file_name, mode='wb') as f:
                         respons = requests.get(link_img)
                         f.write(respons.content)
                     infor_product.append({'code': code, 'name': name, 'bao_hanh': warranty_pdct,
@@ -137,7 +133,7 @@ def claw_infor_product(key, url):
                 print(f'Thong so san pham:  {product_parameters}')
                 print(f'Bao hanh:           {warranty_pdct}')
                 print('*' * 80)
-    return infor_product, error_product, element_product
+            return infor_product, error_product, element_product
 
 
 # Call func
@@ -147,12 +143,13 @@ for key, value in dct_link.items():
     print(url)
     print('*' * 80)
     pdct_dct = claw_infor_product(key, url)
-    csv_file_name = 'Categories/Product/' + 'product_' + key + '.csv'
-    error_file_name = 'Categories/Error/' + 'product_' + key + '.csv'
-    category_file_name = 'Categories/Element/element_' + key + '.csv'
+    csv_file_name = 'Product/' + key + '.csv'
+    error_file_name = 'Error/' + key + '.csv'
+    category_file_name = 'Element/element' + key + '.csv'
     df = pd.DataFrame(pdct_dct[0])
     df_error = pd.DataFrame(pdct_dct[1])
     df_category = pd.DataFrame(pdct_dct[2])
     df.to_csv(csv_file_name, index=False)
     df_error.to_csv(error_file_name, index=False)
     df_category.to_csv(category_file_name, index=False)
+
